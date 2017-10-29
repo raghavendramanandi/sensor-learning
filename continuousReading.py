@@ -63,27 +63,18 @@ def printData():
 def printDataToFile(counter):
    f = open('data.txt','a')
    f.write("Counter: " + counter + "\n")
-   f.write( "gyro data\n")
-   f.write( "---------\n")
    gyro_xout = read_word_2c(0x43)
    gyro_yout = read_word_2c(0x45)
    gyro_zout = read_word_2c(0x47)
-   f.write( "gyro_xout: "+ str(gyro_xout) + " scaled: "+ str(gyro_xout / 131) + "\n")
-   f.write( "gyro_yout: "+ str(gyro_yout) + " scaled: "+ str(gyro_yout / 131) + "\n")
-   f.write( "gyro_zout: "+ str(gyro_zout) + " scaled: "+ str(gyro_zout / 131) + "\n")
-   f.write( "accelerometer data\n")
-   f.write( "------------------\n")
+   f.write( "gyro_xout: "+ str(gyro_xout) + "\n")
+   f.write( "gyro_yout: "+ str(gyro_yout) + "\n")
+   f.write( "gyro_zout: "+ str(gyro_zout) + "\n")
    accel_xout = read_word_2c(0x3b)
    accel_yout = read_word_2c(0x3d)
    accel_zout = read_word_2c(0x3f)
-   accel_xout_scaled = accel_xout / 16384.0
-   accel_yout_scaled = accel_yout / 16384.0
-   accel_zout_scaled = accel_zout / 16384.0
-   f.write( "accel_xout: "+ str(accel_xout) + " scaled: " + str(accel_xout_scaled) + "\n")
-   f.write( "accel_yout: "+ str(accel_yout) + " scaled: " + str(accel_yout_scaled) + "\n")
-   f.write( "accel_zout: "+ str(accel_zout) + " scaled: " + str(accel_zout_scaled) + "\n")
-   f.write( "x rotation: " + str(get_x_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled)) + "\n")
-   f.write( "y rotation: " + str(get_y_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled)) + "\n\n")
+   f.write( "accel_xout: "+ str(accel_xout) + "\n")
+   f.write( "accel_yout: "+ str(accel_yout) + "\n")
+   f.write( "accel_zout: "+ str(accel_zout) + "\n")
    f.close()
 
 bus = smbus.SMBus(1) # or bus = smbus.SMBus(1) for Revision 2 boards
