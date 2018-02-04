@@ -7,14 +7,14 @@ import time;
 #Run this code in a loop
 
 counter = 0
-command = "./LCD.py "+ "Sleeping"
+command = "/home/pi/sensor-learning/LCD.py "+ "Sleeping"
 os.system(command) 
 time.sleep(60)
 while(counter < 1001):
-   command = "./LCD.py "+ str(counter)
+   command = "/home/pi/sensor-learning/LCD.py "+ str(counter)
    print command
    os.system(command)
-   command = "./continuousReading.py " + str(counter)
+   command = "/home/pi/sensor-learning/continuousReading.py " + str(counter)
    print command
    os.system(command)
    time.sleep((1/3)) #sleep for 1 second
